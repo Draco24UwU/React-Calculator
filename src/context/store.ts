@@ -1,9 +1,9 @@
 import { configureStore,Store } from "@reduxjs/toolkit";
-//import SideBarContextReducer from "./SideBarContext";
+import DarkModeContextReducer from "@/context/DarkModeContextReducer";
 
 export const store: Store = configureStore({
     reducer: {
-        //Menu: SideBarContextReducer,
+        DarkMode: DarkModeContextReducer
     }
 })
 

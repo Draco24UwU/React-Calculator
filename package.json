@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
+    "@vitejs/plugin-react": "^4.3.1",
+    "daisyui": "^4.12.10",
+    "lucide-react": "^0.428.0",
     "preline": "^2.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

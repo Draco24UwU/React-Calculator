@@ -1,22 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+  --PrimaryColor: yellow;
+  --SecondaryColor: Black;
+  --TertiaryColor: blue;
+  --DarkMode: #121212;
+  --DarkModeText: #E0E0E0;
+  --DarkModeSubText:#B0B0B0;
+  --Error: #CF6679;
+  --Warning: #FFB74D;
+  --Links: #BB86FC;
+
+  font-family: "Roboto", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: white;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: black;
+  background-color: rgb(255, 255, 255, 0.96);
 }
-
 
 /* Clases Personalizadas utilizando TailwindCSS */
 
@@ -26,6 +32,10 @@
 
 .flexBetween{
   @apply flex items-center justify-between;
+}
+
+.flexAround{
+  @apply flex items-center justify-around;
 }
 
 .flexStart{
@@ -51,3 +61,63 @@
 .flexColEnd{
   @apply flex flex-col items-end justify-end;
 }
+
+
+/*Clases Responsivas*/
+
+h1 {
+  @apply lg:text-6xl md:text-4xl text-2xl;
+  @apply leading-tight; 
+}
+
+h2 {
+  @apply lg:text-4xl md:text-2xl text-lg;
+  @apply leading-snug; 
+}
+
+h3 {
+  @apply lg:text-2xl md:text-xl text-base;
+  @apply leading-normal; 
+}
+
+h4 {
+  @apply lg:text-xl md:text-lg text-base;
+  @apply leading-relaxed; 
+}
+
+h5 {
+  @apply lg:text-sm text-xs;
+  @apply leading-loose; 
+}
+
+p {
+  @apply text-base mb-4; 
+  @apply leading-relaxed;
+}
+
+table,tr,td,th{
+  @apply border-2 border-black dark:border-white
+}
+
+tr,td,th{
+  @apply p-2;
+}
+
+
+/*Clases del Nav-Bar.tsx*/
+
+.Theme-Transition{
+  @apply transition-colors duration-500;
+}
+
+.ScrollBar{
+  @apply scrollbar h-1 dark:scrollbar-thumb-custom-darkmodethumb dark:scrollbar-track-custom-darkmodetack scrollbar-track-gray-200 scrollbar-thumb-slate-950 overflow-y-auto;
+}
+
+.Page-Wrapper{
+  @apply  md:py-12 py-10;
+  @apply xl:px-36 lg:px-20 md:px-12 px-8;
+  @apply dark:bg-[var(--DarkMode)] dark:text-[var(--DarkModeText)];
+}
+
+

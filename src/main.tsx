@@ -1,25 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import { createBrowserRouter, RouterProvider} from "react-router-dom";
+import './index.css'
+import "./constants/styles/Animations.css"
+
+// Declaracion del Provider de Redux y el Store para el Estado Global.
 import { Provider } from "react-redux";
 import { store } from './context/store.ts';
-import './index.css'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App/>,
-  },
-  {
-    path: "/XD",
-    element: <div>UWU</div>,
-  },
-  {
-    path: "/",
-    errorElement: <div>Error 401 not found.</div>,
-  },
-]);
+
+// Declaracion del router y el RouterProvider para las Rutas de la Aplicacion.
+import {RouterProvider} from "react-router-dom";
+import router from './routes/AppRoutes.tsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
