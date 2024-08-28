@@ -8,14 +8,15 @@ function Navbar() {
 
   return (
     <nav className="flexCenter">
-      <ul className="flexCenter gap-20 w-full max-md:hidden">
+      <ul className="flexCenter gap-20 w-full max-md:hidden text-r-sm">
         {Object.entries(RoutesConstants).map(([key, route]) => {
           const routeName = key.charAt(0).toUpperCase() + key.slice(1);
           return (
             <li
+              key={key}
               className={`${
                 currentElement == route
-                  ? "border-b dark:border-[var(--DarkModeText)] border-black"
+                  ? "border-b dark:border-darkmodetext border-black"
                   : ""
               }`}
             >

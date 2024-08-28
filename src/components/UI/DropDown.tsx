@@ -15,8 +15,12 @@ interface DropDownListProps {
 
 function DropDown({ dropdowns, title }: DropDownListProps) {
   return (
-    <div className="dropdown dropdown-hover max-lg:dropdown-end">
-      <div tabIndex={0} role="button" className="btn m-1">
+    <div className="dropdown dropdown-hover max-lg:dropdown-end text-white/90">
+      <div
+        tabIndex={0}
+        role="button"
+        className="m-1 bg-base-100 px-6 py-4 rounded-2xl"
+      >
         {title}
       </div>
       <ul
@@ -24,16 +28,16 @@ function DropDown({ dropdowns, title }: DropDownListProps) {
         className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
       >
         {dropdowns.map((item, index) => (
-          <li className="flex" key={index}>
+          <li className="flex text-r-xs" key={index}>
             {item.route ? (
               <Link to={"/"}>
-                <span className="label-text">{item.title}</span>
+                <span>{item.title}</span>
                 {item.component ? <item.component /> : null}
               </Link>
             ) : item.component ? (
               <div className="form-control">
                 <label className="flexBetween gap-6 cursor-pointer">
-                  <span className="label-text">{item.title}</span>
+                  <span>{item.title}</span>
                   <item.component className="toggle-success" />
                 </label>
               </div>

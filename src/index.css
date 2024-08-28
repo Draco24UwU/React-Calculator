@@ -4,24 +4,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  
-  --PrimaryColor: yellow;
-  --SecondaryColor: Black;
-  --TertiaryColor: blue;
-  --DarkMode: #121212;
-  --DarkModeText: #E0E0E0;
-  --DarkModeSubText:#B0B0B0;
-  --Error: #CF6679;
-  --Warning: #FFB74D;
-  --Links: #BB86FC;
+@layer base{
+  :root {
+    --Primary: 255,0,0;
+    --Secondary: 0,0,0;
+    --Tertiary: 0,0,255;
+    --DarkMode: 18, 18, 18;
+    --DarkModeText: 224, 224, 224;
+    --DarkModeSubText: 176, 176, 176;
+    --Error: 207, 102, 121;
+    --Warning: 255, 183, 77;
+    --Links: 187, 134, 252;
+  }
+}
 
+:root {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
   color: black;
-  background-color: rgb(255, 255, 255, 0.96);
+  background-color: rgb(255, 255, 255, 0.95);
 }
 
 /* Clases Personalizadas utilizando TailwindCSS */
@@ -65,28 +68,28 @@
 
 /*Clases Responsivas*/
 
-h1 {
+h1, .text-r-xl {
   @apply lg:text-6xl md:text-4xl text-2xl;
   @apply leading-tight; 
 }
 
-h2 {
+h2, .text-r-lg {
   @apply lg:text-4xl md:text-2xl text-lg;
   @apply leading-snug; 
 }
 
-h3 {
+h3, .text-r-base {
   @apply lg:text-2xl md:text-xl text-base;
   @apply leading-normal; 
 }
 
-h4 {
+h4, .text-r-sm {
   @apply lg:text-xl md:text-lg text-base;
   @apply leading-relaxed; 
 }
 
-h5 {
-  @apply lg:text-sm text-xs;
+h5, .text-r-xs {
+  @apply lg:text-base md:text-sm text-xs;
   @apply leading-loose; 
 }
 
@@ -95,29 +98,68 @@ p {
   @apply leading-relaxed;
 }
 
-table,tr,td,th{
-  @apply border-2 border-black dark:border-white
+textarea{
+  field-sizing: content;
+  overflow-y: hidden;
+  resize: none;
 }
 
-tr,td,th{
-  @apply p-2;
-}
 
-
-/*Clases del Nav-Bar.tsx*/
+/*Clases del PageWrapper.tsx*/
 
 .Theme-Transition{
   @apply transition-colors duration-500;
 }
 
 .ScrollBar{
-  @apply scrollbar h-1 dark:scrollbar-thumb-custom-darkmodethumb dark:scrollbar-track-custom-darkmodetack scrollbar-track-gray-200 scrollbar-thumb-slate-950 overflow-y-auto;
+  @apply scrollbar h-1 dark:scrollbar-thumb-scroll-darkmodethumb dark:scrollbar-track-scroll-darkmodetrack scrollbar-track-gray-200 scrollbar-thumb-slate-950 overflow-y-auto;
 }
 
 .Page-Wrapper{
   @apply  md:py-12 py-10;
   @apply xl:px-36 lg:px-20 md:px-12 px-8;
-  @apply dark:bg-[var(--DarkMode)] dark:text-[var(--DarkModeText)];
+  @apply dark:bg-darkmode dark:text-darkmodetext;
 }
 
+/*Clases del ImageSlider.tsx*/
 
+.Slider-Container{
+  @apply mx-auto relative;
+}
+.Slider-Img-Container{
+  @apply overflow-hidden w-full h-full rounded-xl flex;
+}
+
+.Slider-Img{
+  @apply object-cover w-full h-full block shrink-0 grow-0 ease-in-out duration-500;
+}
+
+.Slider-Dots-Container{
+  @apply flex gap-4 absolute top-[95%] left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+
+.Slider-Dots{
+  @apply md:w-3 md:h-3 w-2 h-2 rounded-full;
+}
+
+.Button-Slider-Left{
+  @apply absolute bg-darkmode transition-opacity duration-200 hover:opacity-80 opacity-50 p-1.5 hover:text-gray-400 border-2 border-dashed rounded-full w-auto h-auto bottom-4 left-4 text-white max-sm:hidden;
+}
+
+.Button-Slider-Rigth{
+  @apply absolute bg-darkmode transition-opacity duration-200 hover:opacity-80 opacity-50 p-1.5 hover:text-gray-400 border-2 border-dashed rounded-full w-auto h-auto bottom-4 right-4 text-white max-sm:hidden;
+}
+
+/* Clases de Calculator.tsx */
+
+.Calculator-Button-Generic{
+  @apply btn shadow-2xl w-[90%] border-white/40 h-full p-3 md:text-5xl text-4xl rounded-3xl text-white/90 bg-transparent/50;
+}
+
+.Calculator-Button-BasicOperator{
+  @apply btn shadow-2xl w-[90%] border-white/40 h-full p-3 md:text-5xl text-4xl rounded-3xl text-warning bg-transparent/50;
+}
+
+.Calculator-Button-Especial{
+  @apply btn shadow-2xl w-[90%] border-none h-full p-3 md:text-5xl text-4xl rounded-3xl text-white/90 bg-warning;
+}
